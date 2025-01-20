@@ -1,0 +1,23 @@
+{
+    "name": "verdaccio-htpasswd-azure",
+    "initializeCommand": "bash -i ./.devcontainer/preflight_checks.sh",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "devcontainer",
+    "workspaceFolder": "/app",
+    "overrideCommand": true,
+    "shutdownAction": "none",
+    "extensions": [
+        "ms-azuretools.vscode-docker",
+        "redhat.vscode-yaml"
+    ],
+    "remoteUser": "node",
+    "features": {
+      "ghcr.io/devcontainers/features/git:1": {
+        "installGit": "true"
+      }
+    },
+    "mounts": [
+      "source=${env:HOME}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached"
+    ],
+    "postCreateCommand": "CI=true pnpm install --frozen-lockfile && SHELL=/bin/bash pnpm setup"
+  }

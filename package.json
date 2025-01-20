@@ -1,0 +1,59 @@
+{
+  "name": "verdaccio-htpasswd-azure",
+  "version": "0.0.1",
+  "description": "htpasswd auth plugin for Verdaccio that saves in Azure Blob",
+  "license": "MIT",
+  "author": {
+    "name": "&DEV Limited",
+    "email": "oss@and.dev"
+  },
+  "homepage": "https://github.com/ANDDEV-OSS/verdaccio-htpasswd-azure",
+  "repository": {
+    "url": "git+https://github.com/ANDDEV-OSS/verdaccio-htpasswd-azure.git",
+    "type": "git"
+  },
+  "keywords": [
+    "verdaccio",
+    "plugin",
+    "auth",
+    "azure",
+    "blob",
+    "htpasswd",
+    "verdaccio-plugin"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@azure/identity": "^4.5.0",
+    "@azure/storage-blob": "^12.24.0",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "verdaccio-htpasswd": "^10.5.5"
+  },
+  "devDependencies": {
+    "@types/http-errors": "^2.0.4",
+    "@types/node": "^18.19.71",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "@verdaccio/babel-preset": "^10.0.0",
+    "@verdaccio/legacy-types": "^1.0.1",
+    "@verdaccio/types": "^10.8.0",
+    "eslint": "^9.8.0",
+    "typescript": "^5.5.4",
+    "verdaccio": "^6.0.5"
+  },
+  "scripts": {
+    "build": "npm run build:types && npm run build:js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src/ --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",
+    "debug": "DEBUG=verdaccio* ./node_modules/.bin/verdaccio --config /app/verdaccio-config.yaml",
+    "start": "verdaccio -c /app/verdaccio-config.yaml"
+  },
+  "files": [
+    "/lib"
+  ],
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+}

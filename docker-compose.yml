@@ -1,0 +1,12 @@
+services:
+  devcontainer:
+    build:
+      context: ./.devcontainer
+      dockerfile: Dockerfile.devcontainer
+    ports:
+      - "4873:4873"
+    volumes:
+      - ./:/app
+      - ~/.azure/:/home/vscode/.azure/
+    command: sleep infinity
+    restart: always

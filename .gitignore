@@ -1,0 +1,11 @@
+/**/lib
+/**/node_modules
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+.devcontainer/.azure
+.devcontainer/.env
+storage
+verdaccio-config.yaml
